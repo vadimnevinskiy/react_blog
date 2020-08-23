@@ -9,7 +9,7 @@ const Profile = () => {
             <div className='user'>
                 <img src="https://i007.fotocdn.net/s123/2950fc2e1fadccab/user_xl/2816616767.jpg" alt=""/>
                 <div>
-                    img descr
+                    img descr11
                 </div>
             </div>
             <div className='post'>
