@@ -17,5 +17,5 @@ const Post = (props) => {
         </div>
     );
 }
-
+//TODO начал смотреть 17 урок: https://www.youtube.com/watch?v=Ps2TiA5dIKc&list=PLcvhF2Wqh7DNVy1OCUpG3i5lyxyBWhGZ8&index=17
 export default Post;
