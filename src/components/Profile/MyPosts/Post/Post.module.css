@@ -1,0 +1,40 @@
+/*Posts*/
+.postlist__item{
+    border: 1px solid #cccccc;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    grid-gap: 10px;
+    margin-bottom: 10px;
+}
+
+.postlist__item .avatar{
+    text-align: center;
+}
+.postlist__item .avatar img{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #cccccc;
+    border-radius: 50%;
+}
+
+
+.like{
+    text-align: right;
+}
+.like a{
+    color: #00406b;
+    transition: all 0.3s;
+}
+.like a:hover{
+    color: #ffffff;
+}
+.like a:first-child{
+    margin: 0px 10px 0px 0px;
+}
+.likeCount{
+    vertical-align: 5px;
+    margin-right: 5px;
+    color: #00406b;
+    font-weight: bold;
+}

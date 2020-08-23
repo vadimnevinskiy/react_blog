@@ -14,53 +14,10 @@
 /*User*/
 .user{
     display: grid;
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: 50px 1fr;
+    grid-gap: 10px;
 }
 .user img{
     width: 50px;
     height: 50px;
-}
-
-
-/*Posts*/
-.posts{
-    color: #ffffff;
-}
-.post__text{
-    margin-bottom: 10px;
-}
-.postlist{
-    color: #cccccc;
-}
-.postlist__item{
-    padding: 10px;
-}
-
-/*Form*/
-.form{}
-.form__textField{
-    width: 98%;
-    height: 50px;
-    margin: 0px;
-    padding: 0px;
-    border: 1px solid #cccccc;
-    outline: none;
-    padding: 1%;
-}
-.form__buttonBlock{
-    text-align: right;
-    padding: 10px 0px 0px 0px;
-}
-.button{
-    width: 100px;
-    height: 50px;
-    background: aqua;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.2s;
-}
-.button:hover{
-    background: #00406b;
-    color: #ffffff;
 }
