@@ -2,14 +2,10 @@ import React from "react";
 import styles from './MyPosts.module.css';
 import Post from "./Post/Post";
 
-const MyPosts = () => {
-    let posts = [
-        {id: 1, post: 'Lorem ipsum dolor sit amet.', likes: 12},
-        {id: 2, post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut beatae facere impedit maxime pariatur perferendis porro sint suscipit totam!', likes: 7},
-        {id: 3, post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut beatae facere impedit maxime!', likes: 3}
-    ];
+const MyPosts = (props) => {
 
-    let postElement = posts.map(p => <Post text={p.post} likes={p.likes}/>);
+
+    let postElement = props.posts.map(p => <Post text={p.post} likes={p.likes}/>);
 
     return (
         <div className={styles.posts}>
