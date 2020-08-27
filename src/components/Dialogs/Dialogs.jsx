@@ -23,7 +23,11 @@ const Dialogs = (props) => {
     let messagesElements = props.state.messages.map(m => <div key={m.id}><Message message={m.message} id={m.id} /></div>);
 
 
+    let el = React.createRef();
+    let addPost = () => {
 
+        alert(el.current.value);
+    }
 
     return (
         <div className={styles.dialogs}>
@@ -32,6 +36,15 @@ const Dialogs = (props) => {
             </div>
             <div className={styles.messages}>
                 { messagesElements }
+
+                <br/><br/><br/>
+                <div className={styles.form}>
+                    <textarea type="text" className={styles.form__textField} ref={el}></textarea>
+                    <div className={styles.form__buttonBlock}>
+                        <input type="button" className={styles.button} value='Send' onClick={ addPost }/>
+                    </div>
+                </div>
+
             </div>
         </div>
     );
