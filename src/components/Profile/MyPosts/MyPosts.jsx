@@ -3,8 +3,6 @@ import styles from './MyPosts.module.css';
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-
-
     let postElement = props.posts.map(p => <Post text={p.post} likes={p.likes}/>);
 
     return (
