@@ -3,9 +3,17 @@
     background-color: #4a76a8;
     padding: 10px;
 }
+.nav > div{
+    margin: 0px 0px 15px 0px;
+}
 .nav a{
     color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
 }
 .nav a:hover{
-    text-decoration: none;
+    color: #cccccc;
+}
+.nav a.active{
+    color: #cccccc;
 }

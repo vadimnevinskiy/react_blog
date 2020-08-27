@@ -1,23 +1,7 @@
-.content{
-    grid-area: content;
-    background-color: #4a76a8;
-    padding: 10px;
-}
 .mainImage{
     margin-bottom: 10px;
 }
-.content img{
+.mainImage img{
     width: 100%;
     height: 200px;
-}
-
-/*User*/
-.user{
-    display: grid;
-    grid-template-columns: 50px 1fr;
-    grid-gap: 10px;
-}
-.user img{
-    width: 50px;
-    height: 50px;
 }
