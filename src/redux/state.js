@@ -21,7 +21,7 @@ let state = {
         newPostText: ''
     },
     dialogsPage: {
-        dialogs: [
+        users: [
             {id: 1, name: 'Dima'},
             {id: 2, name: 'Sveta'},
             {id: 3, name: 'Andrey'},
@@ -33,11 +33,16 @@ let state = {
             {id: 1, message: 'Hi'},
             {id: 2, message: 'How is your IT?'},
             {id: 3, message: 'Fine!'}
-        ]
+        ],
+        newMessageText: ''
     }
 };
 
 
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+};
 export let addPost = () => {
     let newPost = {
         id: state.profilePage.posts.length + 1,
@@ -49,9 +54,22 @@ export let addPost = () => {
     rerenderEntireTree(state);
 };
 
-export let updateNewPostText = (newText) => {
-    state.profilePage.newPostText = newText;
+
+
+
+export let updateNewMessageText = (newText) => {
+    state.dialogsPage.newMessageText = newText;
     rerenderEntireTree(state);
 };
+export let addMessage = () => {
+    let newMessage = {
+        id: state.dialogsPage.messages.length + 1,
+        message: state.dialogsPage.newMessageText
+    };
+    state.dialogsPage.messages.push(newMessage);
+    state.dialogsPage.newMessageText = '';
+    rerenderEntireTree(state);
+};
+
 
 export default state;

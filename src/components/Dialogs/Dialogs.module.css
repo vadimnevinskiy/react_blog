@@ -1,13 +1,21 @@
 .dialogs {
     display: grid;
     grid-template-columns: 5fr 10fr;
+    grid-template-rows: 1fr 60px;
     grid-gap: 20px;
+    height: 100%;
 }
 
-.dialogs .materialIcons {
+.dialogs .dialogsItems .materialIcons {
     vertical-align: -7px;
     margin-right: 10px;
+    cursor: pointer;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
 }
+
 
 
 .dialogs .dialogsItems .dialog a{
@@ -37,34 +45,53 @@
 .postlist{
     color: #cccccc;
 }
+.messages{
+    padding: 10px 10px 1px 10px;
+}
+.message{
+    background: #cccccc;
+    border-radius: 5px;
+    line-height: 25px;
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    box-shadow: 1px 1px 3px #000000;
+}
+
 
 /*Form*/
 .form{
-    margin: 0px 0px 20px 0px;
+    grid-column: 2/3;
+    margin: 0px 0px 0px 0px;
+    padding: 10px 0px 0px 10px;
+    border-top: 1px solid #8a8a8a;
+    background: #b1e0f2;
 }
 .form__textField{
-    width: 98%;
-    height: 50px;
+    width: 80%;
+    height: 30px;
     margin: 0px;
     padding: 0px;
-    border: 1px solid #cccccc;
+    border: 1px solid #8a8a8a;
     outline: none;
     padding: 1%;
+    border-radius: 7px;
+}
+.dialogs .form .materialIcons {
+    font-size: 40px;
+    color: #a3a3a3;
+    vertical-align: 0px;
+    margin-left: 10px;
+    cursor: pointer;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    transition: all 0.3s;
+}
+.dialogs .form .materialIcons:hover {
+    color: #8a8a8a;
 }
 .form__buttonBlock{
     text-align: right;
     padding: 10px 0px 0px 0px;
-}
-.button{
-    width: 100px;
-    height: 50px;
-    background: aqua;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.2s;
-}
-.button:hover{
-    background: #00406b;
-    color: #ffffff;
 }

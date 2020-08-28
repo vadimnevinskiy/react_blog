@@ -1,6 +1,9 @@
 /*Posts*/
 .posts{
     color: #ffffff;
+    display: grid;
+    grid-template-rows: 1fr 63px;
+    height: 90%;
 }
 .post__text{
     margin-bottom: 10px;
@@ -11,31 +14,36 @@
 
 /*Form*/
 .form{
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 10px 0px 10px 10px;
+    border-top: 1px solid #8a8a8a;
+    background: #b1e0f2;
 }
 .form__textField{
-    width: 98%;
-    height: 50px;
+    width: 88%;
+    height: 30px;
     margin: 0px;
-    padding: 0px;
-    border: 1px solid #cccccc;
+    border: 1px solid #8a8a8a;
     outline: none;
     padding: 1%;
+    border-radius: 7px;
+}
+.form .materialIcons {
+    font-size: 40px;
+    color: #a3a3a3;
+    vertical-align: 0px;
+    margin-left: 10px;
+    cursor: pointer;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    transition: all 0.3s;
+}
+.form .materialIcons:hover {
+    color: #8a8a8a;
 }
 .form__buttonBlock{
     text-align: right;
     padding: 10px 0px 0px 0px;
-}
-.button{
-    width: 100px;
-    height: 50px;
-    background: aqua;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.2s;
-}
-.button:hover{
-    background: #00406b;
-    color: #ffffff;
 }

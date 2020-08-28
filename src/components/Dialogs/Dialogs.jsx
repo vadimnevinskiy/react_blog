@@ -5,46 +5,43 @@ import Message from "./Message/Message";
 
 
 const Dialogs = (props) => {
-// let dialogElements =
-//     dialogsData.map((dialog) => {
-//     return (
-//         <DialogItem name={dialog.name} id={dialog.id} />
-//     );
-// });
 
-// let messagesElements =
-//     MessagesData.map((message) => {
-//         return (
-//             <Message message={message.message} />
-//         );
-//     });
-
-    let dialogsElements = props.state.dialogs.map(d => <div key={d.id}><DialogItem name={d.name} id={d.id} /></div>);
-    let messagesElements = props.state.messages.map(m => <div key={m.id}><Message message={m.message} id={m.id} /></div>);
+    let dialogsElements = props.dialogsPage.users.map(d => <div key={d.id}><DialogItem name={d.name} id={d.id}/></div>);
+    let messagesElements = props.dialogsPage.messages.map(m => <div key={m.id}><Message message={m.message} id={m.id}/>
+    </div>);
 
 
-    let el = React.createRef();
-    let addPost = () => {
+    let textField = React.createRef();
+    let addDialog = () => {
+        props.addMessage();
+    }
 
-        alert(el.current.value);
+    let onMessageChange = () => {
+        let text = textField.current.value;
+        props.updateNewMessageText(text);
     }
 
     return (
         <div className={styles.dialogs}>
             <div className={styles.dialogsItems}>
-                { dialogsElements }
+                {dialogsElements}
             </div>
             <div className={styles.messages}>
-                { messagesElements }
-
-                <br/><br/><br/>
-                <div className={styles.form}>
-                    <textarea type="text" className={styles.form__textField} ref={el}></textarea>
-                    <div className={styles.form__buttonBlock}>
-                        <input type="button" className={styles.button} value='Send' onClick={ addPost }/>
-                    </div>
-                </div>
-
+                {messagesElements}
+            </div>
+            <div className={styles.form}>
+                <textarea type="text"
+                          className={styles.form__textField}
+                          ref={textField}
+                          value={props.dialogsPage.newMessageText}
+                          onChange={onMessageChange}
+                />
+                <span
+                    className={styles.materialIcons + ' ' + "material-icons"}
+                    value='Send'
+                    onClick={addDialog}
+                >
+                        send</span>
             </div>
         </div>
     );

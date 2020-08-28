@@ -16,9 +16,12 @@ const MyPosts = (props) => {
     }
     return (
         <div className={styles.posts}>
-            <h3 className={styles.post__text}>
-                My posts
-            </h3>
+            <div className={styles.postlist}>
+                <h3 className={styles.post__text}>
+                    My posts
+                </h3>
+                { postElement }
+            </div>
             <div className={styles.form}>
                 <textarea type="text"
                           className={ styles.form__textField }
@@ -26,12 +29,12 @@ const MyPosts = (props) => {
                           value={ props.newPostText }
                           onChange={ onPostChange }
                 />
-                <div className={styles.form__buttonBlock}>
-                    <input type="button" className={styles.button} value='Send' onClick={ addPost }/>
-                </div>
-            </div>
-            <div className={styles.postlist}>
-                { postElement }
+                <span
+                    className={styles.materialIcons + ' ' + "material-icons"}
+                    value='Send'
+                    onClick={addPost}
+                >
+                        send</span>
             </div>
         </div>
     );

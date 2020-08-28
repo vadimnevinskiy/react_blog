@@ -5,7 +5,7 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
     return (
-        <div>
+        <div className='h100'>
             {/*<div className={styles.mainImage}>*/}
             {/*    <img src="https://funik.ru/wp-content/uploads/2019/05/b9b57d4863b903af6a95.jpg" alt=""/>*/}
             {/*</div>*/}

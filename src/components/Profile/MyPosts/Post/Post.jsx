@@ -11,7 +11,7 @@ const Post = (props) => {
                 {props.text}
                 <div className={styles.like}>
                     <span className={styles.likeCount}>{props.likes}</span>
-                    <a href="$s"><i className="material-icons">thumb_up_alt</i></a>
+                    <a href="$s"><i className={styles.materialIcons + ' ' + "material-icons"}>thumb_up_alt</i></a>
                 </div>
             </div>
         </div>
