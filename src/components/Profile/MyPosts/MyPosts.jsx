@@ -5,10 +5,11 @@ import Post from "./Post/Post";
 const MyPosts = (props) => {
     let postElement = props.posts.map(p => <div key={p.id}><Post text={p.post} likes={p.likes}/></div>);
 
-    let el = React.createRef();
+    let textField = React.createRef();
     let addPost = () => {
-
-        alert(el.current.value);
+        let text = textField.current.value;
+        props.addPost(text);
+        textField.current.value = '';
     }
 
     return (
@@ -17,7 +18,7 @@ const MyPosts = (props) => {
                 My posts
             </h3>
             <div className={styles.form}>
-                <textarea type="text" className={styles.form__textField} ref={el}></textarea>
+                <textarea type="text" className={styles.form__textField} ref={textField}></textarea>
                 <div className={styles.form__buttonBlock}>
                     <input type="button" className={styles.button} value='Send' onClick={ addPost }/>
                 </div>
