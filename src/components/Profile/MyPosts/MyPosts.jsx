@@ -7,18 +7,25 @@ const MyPosts = (props) => {
 
     let textField = React.createRef();
     let addPost = () => {
-        let text = textField.current.value;
-        props.addPost(text);
-        textField.current.value = '';
+        props.addPost();
     }
 
+    let onPostChange = () => {
+        let text = textField.current.value;
+        props.updateNewPostText(text);
+    }
     return (
         <div className={styles.posts}>
             <h3 className={styles.post__text}>
                 My posts
             </h3>
             <div className={styles.form}>
-                <textarea type="text" className={styles.form__textField} ref={textField}></textarea>
+                <textarea type="text"
+                          className={ styles.form__textField }
+                          ref={ textField }
+                          value={ props.newPostText }
+                          onChange={ onPostChange }
+                />
                 <div className={styles.form__buttonBlock}>
                     <input type="button" className={styles.button} value='Send' onClick={ addPost }/>
                 </div>
