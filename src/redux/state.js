@@ -42,7 +42,7 @@ let state = {
 
 export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
-    rerenderEntireTree();
+    rerenderEntireTree(state);
 };
 export const addPost = () => {
     let newPost = {
@@ -52,12 +52,12 @@ export const addPost = () => {
     };
     state.profilePage.posts.push(newPost);
     state.profilePage.newPostText = '';
-    rerenderEntireTree();
+    rerenderEntireTree(state);
 };
 
 export const updateNewMessageText = (newText) => {
     state.dialogsPage.newMessageText = newText;
-    rerenderEntireTree();
+    rerenderEntireTree(state);
 };
 export const addMessage = () => {
     let newMessage = {
@@ -66,7 +66,7 @@ export const addMessage = () => {
     };
     state.dialogsPage.messages.push(newMessage);
     state.dialogsPage.newMessageText = '';
-    rerenderEntireTree();
+    rerenderEntireTree(state);
 };
 
 
