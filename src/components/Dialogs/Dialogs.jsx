@@ -13,12 +13,12 @@ const Dialogs = (props) => {
 
     let textField = React.createRef();
     let addDialog = () => {
-        props.addMessage();
+        props.dispatch({type: 'ADD-MESSAGE'})
     }
 
     let onMessageChange = () => {
         let text = textField.current.value;
-        props.updateNewMessageText(text);
+        props.dispatch({type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text})
     }
 
     return (

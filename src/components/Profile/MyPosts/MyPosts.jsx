@@ -7,13 +7,12 @@ const MyPosts = (props) => {
 
     let textField = React.createRef();
     let addPost = () => {
-        props.addPost();
+        props.dispatch({type: 'ADD-POST'})
     }
 
     let onPostChange = () => {
-        // debugger;
         let text = textField.current.value;
-        props.updateNewPostText(text);
+        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text})
     }
     return (
         <div className={styles.posts}>
