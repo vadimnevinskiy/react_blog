@@ -11,6 +11,7 @@ const MyPosts = (props) => {
     }
 
     let onPostChange = () => {
+        // debugger;
         let text = textField.current.value;
         props.updateNewPostText(text);
     }
