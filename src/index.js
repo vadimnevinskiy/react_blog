@@ -21,6 +21,9 @@ let rerenderEntireTree = (state) => {
 
 rerenderEntireTree(store.getState());
 
+// STEP 2 - OBSERVER
+// Во время первой инициализации проекта вызываем функцию subscribe из store,
+// в которую передаем функцию коллбек rerenderEntireTree
 store.subscribe(rerenderEntireTree);
 
 // If you want your app to work offline and load faster, you can change

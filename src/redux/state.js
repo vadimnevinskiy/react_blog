@@ -36,6 +36,9 @@ let store = {
             newMessageText: ''
         }
     },
+    // STEP 1 - OBSERVER
+    // создана заглушка для исключения ошибок в вызове нижних функциях,
+    // простая инициализация функции заглушки, которая ничего не делает
     _callSubscriber() {
         console.log('State changed');
     },
@@ -43,6 +46,14 @@ let store = {
     getState(){
       return this._state;
     },
+    // STEP 3 - OBSERVER
+    // сразу после инициализации проекта вызывается функция subscribe,
+    // которая получает в качестве параметра коллбек функцию rerenderEntireTree
+    // и переприсваивается функция _callSubscriber функцией rerenderEntireTree
+    // получили что this._callSubscriber = rerenderEntireTree, т.е. при вызове функции
+    // this._callSubscriber мы фактически вызываем rerenderEntireTree(state) из index.js
+    // с параметром state, куда передаем объект _state из текущего объекта, например
+    // this._callSubscriber(this._state);
     subscribe(observer) {
         this._callSubscriber = observer;
     },
@@ -56,6 +67,10 @@ let store = {
             };
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = '';
+            // STEP 4 - OBSERVER
+            // Вызов this._callSubscriber(this._state);
+            // Но фактически после шагов 2 и 3 мы вызываем функцию rerenderEntireTree(state)
+            // в которую передаем обновленный state, по коду он выглядит как this._state
             this._callSubscriber(this._state);
         } else if(action.type === 'UPDATE-NEW-POST-TEXT'){
             this._state.profilePage.newPostText = action.newText;
