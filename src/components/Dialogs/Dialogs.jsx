@@ -17,8 +17,8 @@ const Dialogs = (props) => {
         props.dispatch(addMessageActionCreator())
     }
 
-    let onMessageChange = () => {
-        let text = textField.current.value;
+    let onMessageChange = (e) => {
+        let text = e.target.value
         props.dispatch(updateNewMessageTextActionCreator(text))
     }
 
@@ -33,7 +33,6 @@ const Dialogs = (props) => {
             <div className={styles.form}>
                 <textarea type="text"
                           className={styles.form__textField}
-                          ref={textField}
                           value={props.dialogsPage.newMessageText}
                           onChange={onMessageChange}
                 />

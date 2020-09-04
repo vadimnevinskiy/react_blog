@@ -24,8 +24,8 @@ const MyPosts = (props) => {
         props.dispatch(addPostActionCreator())
     }
 
-    let onPostChange = () => {
-        let text = textField.current.value;
+    let onPostChange = (e) => {
+        let text = e.target.value;
         props.dispatch(updateNewPostTextActionCreator(text))
     }
     return (
@@ -39,7 +39,6 @@ const MyPosts = (props) => {
             <div className={styles.form}>
                 <textarea type="text"
                           className={ styles.form__textField }
-                          ref={ textField }
                           value={ props.newPostText }
                           onChange={ onPostChange }
                 />
@@ -47,8 +46,7 @@ const MyPosts = (props) => {
                     className={styles.materialIcons + ' ' + "material-icons"}
                     value='Send'
                     onClick={addPost}
-                >
-                        send</span>
+                >send</span>
             </div>
         </div>
     );
