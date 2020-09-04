@@ -18,9 +18,11 @@
     padding: 10px 0px 10px 10px;
     border-top: 1px solid #8a8a8a;
     background: #b1e0f2;
+    display: grid;
+    grid-template-columns: 1fr 57px;
 }
 .form__textField{
-    width: 88%;
+    width: 98%;
     height: 30px;
     margin: 0px;
     border: 1px solid #8a8a8a;
@@ -31,7 +33,7 @@
 .form .materialIcons {
     font-size: 40px;
     color: #a3a3a3;
-    vertical-align: 0px;
+    line-height: 36px;
     margin-left: 10px;
     cursor: pointer;
     -ms-user-select: none;
