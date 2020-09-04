@@ -30,6 +30,3 @@ store.subscribe(rerenderEntireTree);
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
-//28.08.2020
-// TODO пересмотреть 35 урок!
