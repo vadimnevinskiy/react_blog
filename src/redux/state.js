@@ -1,7 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+import profileReducer from "./profile-reducer";
+import dialogReducer from "./dialogs-reducer";
+import sidebarReducer from "./sidebar-reducer";
 
 
 let store = {
@@ -40,7 +39,8 @@ let store = {
                 {id: 3, message: 'Fine!'}
             ],
             newMessageText: ''
-        }
+        },
+        sidebar: {}
     },
     // STEP 1 - OBSERVER
     // создана заглушка для исключения ошибок в вызове нижних функциях,
@@ -65,61 +65,21 @@ let store = {
     },
 
     dispatch(action) {
-        if(action.type === ADD_POST){
-            let newPost = {
-                id: this._state.profilePage.posts.length + 1,
-                post: this._state.profilePage.newPostText,
-                likes: 0
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            // STEP 4 - OBSERVER
-            // Вызов this._callSubscriber(this._state);
-            // Но фактически после шагов 2 и 3 мы вызываем функцию rerenderEntireTree(state)
-            // в которую передаем обновленный state, по коду он выглядит как this._state
-            this._callSubscriber(this._state);
-        } else if(action.type === UPDATE_NEW_POST_TEXT){
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        } else if (action.type === ADD_MESSAGE) {
-            let newMessage = {
-                id: this._state.dialogsPage.messages.length + 1,
-                message: this._state.dialogsPage.newMessageText
-            };
-            this._state.dialogsPage.messages.push(newMessage);
-            this._state.dialogsPage.newMessageText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.dialogsPage.newMessageText = action.newText;
-            this._callSubscriber(this._state);
-        }
+
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogReducer(this._state.dialogsPage, action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+
+        // STEP 4 - OBSERVER
+        // Вызов this._callSubscriber(this._state);
+        // Но фактически после шагов 2 и 3 мы вызываем функцию rerenderEntireTree(state)
+        // в которую передаем обновленный state, по коду он выглядит как this._state
+        this._callSubscriber(this._state);
     }
 }
 
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST
-    }
-}
 
-export const updateNewPostTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT,
-        newText: text
-    }
-}
 
-export const addMessageActionCreator = () => {
-    return {
-        type: ADD_MESSAGE
-    }
-}
 
-export const updateNewMessageTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_TEXT,
-        newText: text
-    }
-}
 
 export default store;

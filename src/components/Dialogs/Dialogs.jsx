@@ -2,7 +2,10 @@ import React from "react";
 import styles from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/state";
+
+// 2) ACTION CREATOR - СОЗДАТЕЛЬ объекта "action"
+// Импортируем ACTION CREATOR-ы
+import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/dialogs-reducer";
 
 
 const Dialogs = (props) => {
@@ -12,13 +15,20 @@ const Dialogs = (props) => {
     </div>);
 
 
-    let textField = React.createRef();
     let addDialog = () => {
+        // 2) ACTION CREATOR - СОЗДАТЕЛЬ объекта "action"
+        // при добавлении поста, чтобы каждый раз не создавать action
+        // вызываем функцию ACTION CREATOR с необходимыми нам параметрами
         props.dispatch(addMessageActionCreator())
     }
 
     let onMessageChange = (e) => {
+        // text - получаем из value текстового поля (e - инициализатор вызова функции, в нашем случае textarea)
         let text = e.target.value
+
+        // 2) ACTION CREATOR - СОЗДАТЕЛЬ объекта "action"
+        // при изменении текста, чтобы каждый раз не создавать action
+        // вызываем функцию ACTION CREATOR с необходимыми нам параметрами
         props.dispatch(updateNewMessageTextActionCreator(text))
     }
 
