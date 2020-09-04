@@ -6,9 +6,9 @@ import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../
 
 
 const Dialogs = (props) => {
-
-    let dialogsElements = props.dialogsPage.users.map(d => <div key={d.id}><DialogItem name={d.name} id={d.id}/></div>);
-    let messagesElements = props.dialogsPage.messages.map(m => <div key={m.id}><Message message={m.message} id={m.id}/>
+    let dialogsPage = props.store.getState().dialogsPage
+    let dialogsElements = dialogsPage.users.map(d => <div key={d.id}><DialogItem name={d.name} id={d.id}/></div>);
+    let messagesElements = dialogsPage.messages.map(m => <div key={m.id}><Message message={m.message} id={m.id}/>
     </div>);
 
 
@@ -33,7 +33,7 @@ const Dialogs = (props) => {
             <div className={styles.form}>
                 <textarea type="text"
                           className={styles.form__textField}
-                          value={props.dialogsPage.newMessageText}
+                          value={dialogsPage.newMessageText}
                           onChange={onMessageChange}
                 />
                 <span

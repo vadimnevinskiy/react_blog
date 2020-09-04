@@ -4,15 +4,13 @@ import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
+    let profilePage = props.store.getState().profilePage;
     return (
         <div className='h100'>
-            {/*<div className={styles.mainImage}>*/}
-            {/*    <img src="https://funik.ru/wp-content/uploads/2019/05/b9b57d4863b903af6a95.jpg" alt=""/>*/}
-            {/*</div>*/}
             <ProfileInfo/>
             <MyPosts
-                posts={props.profilePage.posts}
-                newPostText={props.profilePage.newPostText}
+                posts={profilePage.posts}
+                newPostText={profilePage.newPostText}
                 dispatch={props.dispatch}
             />
         </div>
